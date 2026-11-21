@@ -1,0 +1,4 @@
+# SchijfOpschoner - geen externe afhankelijkheden nodig!
+# Alleen standaard Python (tkinter zit ingebouwd in Windows Python)
+# Voor bouwen naar .exe:
+pyinstaller>=6.0

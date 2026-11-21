@@ -1,0 +1,48 @@
+name: Build SchijfOpschoner.exe
+
+on:
+  push:
+    branches:
+      - arena/fa335822-exe-app
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Code ophalen
+        uses: actions/checkout@v4
+
+      - name: Python installeren
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: PyInstaller installeren
+        run: pip install --upgrade pyinstaller
+
+      - name: Bouw SchijfOpschoner.exe
+        run: pyinstaller --onefile --windowed --name SchijfOpschoner --clean app.py
+
+      - name: Upload als artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SchijfOpschoner-exe
+          path: dist/SchijfOpschoner.exe
+          retention-days: 90
+
+      - name: Publiceer als GitHub Release (downloadbare .exe)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: SchijfOpschoner v1.0.0
+          files: dist/SchijfOpschoner.exe
+          body: |
+            ## SchijfOpschoner v1.0.0
+
+            Download `SchijfOpschoner.exe` en dubbelklik om te starten. Geen installatie nodig.
+
+            Scant je harde schijf op ongebruikte apps, grote bestanden en temp/junk.
+            Verwijdert nooit iets zonder jouw bevestiging — standaard gaat alles naar de Prullenbak.
