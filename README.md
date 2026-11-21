@@ -9,7 +9,21 @@ Een gratis Windows-app die je harde schijf scant op:
 
 ---
 
-## 🚀 Installeren (2 manieren)
+## ⬇️ Direct downloaden (kant-en-klare .exe — geen installatie nodig!)
+
+👉 **[Download SchijfOpschoner.exe (v1.0.0)](https://github.com/yuliankanters2011-tech/exe-app/releases/download/v1.0.0/SchijfOpschoner.exe)**
+
+1. Klik op de link hierboven (of ga naar [Releases](https://github.com/yuliankanters2011-tech/exe-app/releases))
+2. Dubbelklik op het bestand — klaar! Het programma opent direct.
+3. Werkt op Windows 10 en 11. Geen Python of installatie nodig.
+
+> 💡 Windows SmartScreen kan een melding tonen ("Windows heeft je pc beschermd") omdat de .exe niet digitaal ondertekend is. Klik op **"Meer info"** → **"Toch uitvoeren"**. Dat is normaal bij gratis software.
+
+---
+
+## 🚀 Zelf bouwen (optioneel)
+
+Wil je de .exe zelf bouwen vanaf de broncode? Dat kan op 2 manieren:
 
 ### Manier 1 — Snelste: direct starten met Python (geen bouwen nodig)
 
