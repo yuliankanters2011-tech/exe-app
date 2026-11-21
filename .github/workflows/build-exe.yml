@@ -1,0 +1,32 @@
+name: Build SchijfOpschoner.exe
+
+on:
+  push:
+    branches:
+      - arena/fa335822-exe-app
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Code ophalen
+        uses: actions/checkout@v4
+
+      - name: Python installeren
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: PyInstaller installeren
+        run: pip install --upgrade pyinstaller
+
+      - name: Bouw SchijfOpschoner.exe
+        run: pyinstaller --onefile --windowed --name SchijfOpschoner --clean app.py
+
+      - name: Upload als artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SchijfOpschoner-exe
+          path: dist/SchijfOpschoner.exe
+          retention-days: 90
